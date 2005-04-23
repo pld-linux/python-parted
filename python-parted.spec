@@ -9,7 +9,7 @@ Source0:	pyparted-%{version}.tar.gz
 BuildRequires:	parted-devel >= 1.6.12
 BuildRequires:	python-devel
 Requires:	parted >= 1.6.12
-Requires:	python-abi = %(%{__python} -c "import sys; print sys.version[:3]")
+Requires:	python >= %(%{__python} -c "import sys; print sys.version[:3]")
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
