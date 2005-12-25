@@ -2,7 +2,7 @@ Summary:	Python module for parted
 Summary(pl):	Modu³ Pythona dla Parteda
 Name:		python-parted
 Version:	1.6.9
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	pyparted-%{version}.tar.gz
@@ -29,7 +29,8 @@ partycji.
 cp -f /usr/share/automake/config.* .
 %configure \
 	--with-python-version=2.4
-%{__make}
+%{__make} \
+	AM_CFLAGS="-fPIC"
 
 %install
 rm -rf $RPM_BUILD_ROOT
