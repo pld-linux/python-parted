@@ -4,11 +4,11 @@ Name:		python-parted
 Version:	1.6.10
 Release:	1
 License:	LGPL
-Group:		Libraries
+Group:		Libraries/Python
 Source0:	pyparted-%{version}.tar.gz
 # Source0-md5:	977f05d390a9198a1170f860977ebcc6
-BuildRequires:	automake
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	parted-devel >= 1.6.22-3
 BuildRequires:	python-devel >= 1:2.4
