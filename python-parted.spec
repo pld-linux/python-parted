@@ -1,13 +1,15 @@
 Summary:	Python module for parted
 Summary(pl):	Modu³ Pythona dla Parteda
 Name:		python-parted
-Version:	1.6.9
-Release:	2
+Version:	1.6.10
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	pyparted-%{version}.tar.gz
-# Source0-md5:	981718416c8f426d2472f51c859a126f
+# Source0-md5:	977f05d390a9198a1170f860977ebcc6
 BuildRequires:	automake
+BuildRequires:	autoconf
+BuildRequires:	libtool
 BuildRequires:	parted-devel >= 1.6.22-3
 BuildRequires:	python-devel >= 1:2.4
 %pyrequires_eq	python-libs
@@ -26,7 +28,11 @@ partycji.
 %setup -q -n pyparted-%{version}
 
 %build
-cp -f /usr/share/automake/config.* .
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--with-python-version=2.4
 %{__make} \
