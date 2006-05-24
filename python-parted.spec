@@ -1,5 +1,5 @@
 Summary:	Python module for parted
-Summary(pl):	Modu³ Pythona dla Parteda
+Summary(pl):	Modu³ Pythona dla parteda
 Name:		python-parted
 Version:	1.6.10
 Release:	1
