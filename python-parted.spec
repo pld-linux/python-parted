@@ -1,5 +1,5 @@
 Summary:	Python module for parted
-Summary(pl):	Modu≥ Pythona dla parteda
+Summary(pl.UTF-8):   Modu≈Ç Pythona dla parteda
 Name:		python-parted
 Version:	1.6.10
 Release:	1
@@ -20,8 +20,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Python module for the parted library. It is used for manipulating
 partition tables.
 
-%description -l pl
-Modu≥ Pythona dla biblioteki parted. S≥uøy do modyfikowania tablic
+%description -l pl.UTF-8
+Modu≈Ç Pythona dla biblioteki parted. S≈Çu≈ºy do modyfikowania tablic
 partycji.
 
 %prep
