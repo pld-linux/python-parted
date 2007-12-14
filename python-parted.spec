@@ -1,19 +1,19 @@
 Summary:	Python module for parted
 Summary(pl.UTF-8):	Moduł Pythona dla parteda
 Name:		python-parted
-Version:	1.6.10
+Version:	1.8.9
 Release:	1
 License:	LGPL
 Group:		Libraries/Python
-Source0:	pyparted-%{version}.tar.gz
-# Source0-md5:	977f05d390a9198a1170f860977ebcc6
+Source0:	pyparted-%{version}.tar.bz2
+# Source0-md5:	24d60b03142abd7cf1ba4d069bc9db3e
+Patch0:		%{name}-constraint.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	parted-devel >= 1.6.22-3
 BuildRequires:	python-devel >= 1:2.4
 %pyrequires_eq	python-libs
-Requires:	parted >= 1.6.22-3
+Requires:	parted >= 1.8.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -26,15 +26,9 @@ partycji.
 
 %prep
 %setup -q -n pyparted-%{version}
+%patch0 -p1
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--with-python-version=2.4
 %{__make} \
 	AM_CFLAGS="-fPIC"
 
