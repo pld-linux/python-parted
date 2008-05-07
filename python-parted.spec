@@ -12,6 +12,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	parted-devel >= 1.6.22-3
 BuildRequires:	python-devel >= 1:2.4
+BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
 Requires:	parted >= 1.8.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
