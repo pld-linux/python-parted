@@ -5,7 +5,7 @@ Version:	1.8.9
 Release:	1
 License:	LGPL
 Group:		Libraries/Python
-Source0:	pyparted-%{version}.tar.bz2
+Source0:	http://dcantrel.fedorapeople.org/pyparted/pyparted-%{version}.tar.bz2
 # Source0-md5:	24d60b03142abd7cf1ba4d069bc9db3e
 Patch0:		%{name}-constraint.patch
 BuildRequires:	autoconf
