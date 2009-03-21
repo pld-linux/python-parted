@@ -1,20 +1,19 @@
 Summary:	Python module for parted
 Summary(pl.UTF-8):	Moduł Pythona dla parteda
 Name:		python-parted
-Version:	1.8.9
-Release:	3
+Version:	2.0.8
+Release:	1
 License:	LGPL
 Group:		Libraries/Python
-Source0:	http://dcantrel.fedorapeople.org/pyparted/pyparted-%{version}.tar.bz2
-# Source0-md5:	24d60b03142abd7cf1ba4d069bc9db3e
-Patch0:		%{name}-constraint.patch
+Source0:	https://fedorahosted.org/releases/p/y/pyparted/pyparted-%{version}.tar.gz
+# Source0-md5:	ee1d2f658698360e1d7ce72cde4249da
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	parted-devel >= 1.6.22-3
 BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
-Requires:	parted >= 1.8.6
+Requires:	parted >= 1.8.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,11 +26,15 @@ partycji.
 
 %prep
 %setup -q -n pyparted-%{version}
-%patch0 -p1
 
 %build
-%{__make} \
-	AM_CFLAGS="-fPIC"
+%{__libtoolize}
+%{__autoheader}
+%{__aclocal} -I m4
+%{__autoconf}
+%{__automake}
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -45,4 +48,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%attr(755,root,root) %{py_sitedir}/partedmodule.so
+%attr(755,root,root) %{py_sitedir}/_pedmodule.so
+%dir %{py_sitedir}/parted
+%{py_sitedir}/parted/*.py[co]
