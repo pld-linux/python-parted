@@ -2,7 +2,7 @@ Summary:	Python module for parted
 Summary(pl.UTF-8):	Moduł Pythona dla parteda
 Name:		python-parted
 Version:	2.0.9
-Release:	3
+Release:	4
 License:	LGPL
 Group:		Libraries/Python
 Source0:	https://fedorahosted.org/releases/p/y/pyparted/pyparted-%{version}.tar.gz
