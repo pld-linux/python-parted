@@ -9,7 +9,9 @@ Source0:	https://fedorahosted.org/releases/p/y/pyparted/pyparted-%{version}.tar.
 # Source0-md5:	74a0406e8e4b213507c4ad0e0912d969
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	parted-devel >= 1.6.22-3
+BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
