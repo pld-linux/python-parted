@@ -1,21 +1,22 @@
-Summary:	Python module for parted
-Summary(pl.UTF-8):	Moduł Pythona dla parteda
+Summary:	Python module for parted library
+Summary(pl.UTF-8):	Moduł Pythona do biblioteki parteda
 Name:		python-parted
-Version:	2.0.9
-Release:	4
-License:	LGPL
+Version:	3.5
+Release:	1
+License:	GPL v2+
 Group:		Libraries/Python
 Source0:	https://fedorahosted.org/releases/p/y/pyparted/pyparted-%{version}.tar.gz
-# Source0-md5:	74a0406e8e4b213507c4ad0e0912d969
-BuildRequires:	autoconf
+# Source0-md5:	aa3d68da99331a923bf8a7e21e6e6970
+URL:		https://fedorahosted.org/pyparted/
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	parted-devel >= 1.6.22-3
+BuildRequires:	parted-devel >= 2.2
 BuildRequires:	pkgconfig
-BuildRequires:	python-devel >= 1:2.4
+BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
-Requires:	parted >= 1.8.8
+Requires:	parted >= 2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,9 +32,9 @@ partycji.
 
 %build
 %{__libtoolize}
-%{__autoheader}
 %{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
 %{__make}
@@ -44,6 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/*.la
 %py_postclean
 
 %clean
@@ -51,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
+%doc AUTHORS BUGS ChangeLog NEWS README
 %attr(755,root,root) %{py_sitedir}/_pedmodule.so
 %dir %{py_sitedir}/parted
 %{py_sitedir}/parted/*.py[co]
