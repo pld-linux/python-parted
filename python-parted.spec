@@ -1,12 +1,12 @@
 Summary:	Python module for parted library
 Summary(pl.UTF-8):	Moduł Pythona do biblioteki parteda
 Name:		python-parted
-Version:	3.5
-Release:	2
+Version:	3.8
+Release:	1
 License:	GPL v2+
 Group:		Libraries/Python
 Source0:	https://fedorahosted.org/releases/p/y/pyparted/pyparted-%{version}.tar.gz
-# Source0-md5:	aa3d68da99331a923bf8a7e21e6e6970
+# Source0-md5:	e9cd0c94c71ac17755f71a8e1561eac2
 URL:		https://fedorahosted.org/pyparted/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
@@ -32,21 +32,14 @@ partycji.
 %setup -q -n pyparted-%{version}
 
 %build
-%{__libtoolize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure
-%{__make}
+python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
+python -- setup.py install \
+	--root=$RPM_BUILD_ROOT \
+	--optimize=2
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
-
-%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/*.la
 %py_postclean
 
 %clean
@@ -56,5 +49,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README
 %attr(755,root,root) %{py_sitedir}/_pedmodule.so
+%{py_sitedir}/*.egg-info
 %dir %{py_sitedir}/parted
 %{py_sitedir}/parted/*.py[co]
