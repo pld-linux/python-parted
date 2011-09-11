@@ -47,8 +47,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog NEWS README
+%doc AUTHORS BUGS ChangeLog NEWS README TODO
 %attr(755,root,root) %{py_sitedir}/_pedmodule.so
-%{py_sitedir}/*.egg-info
+%{py_sitedir}/pyparted-%{version}-py*.egg-info
 %dir %{py_sitedir}/parted
 %{py_sitedir}/parted/*.py[co]
