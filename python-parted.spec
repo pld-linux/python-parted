@@ -8,9 +8,6 @@ Group:		Libraries/Python
 Source0:	https://fedorahosted.org/releases/p/y/pyparted/pyparted-%{version}.tar.gz
 # Source0-md5:	e9cd0c94c71ac17755f71a8e1561eac2
 URL:		https://fedorahosted.org/pyparted/
-BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	parted-devel >= 2.2
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.5
