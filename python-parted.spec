@@ -1,20 +1,20 @@
 Summary:	Python module for parted library
 Summary(pl.UTF-8):	Moduł Pythona do biblioteki parteda
 Name:		python-parted
-Version:	3.8
-Release:	2
+Version:	3.9
+Release:	1
 License:	GPL v2+
 Group:		Libraries/Python
 Source0:	https://fedorahosted.org/releases/p/y/pyparted/pyparted-%{version}.tar.gz
-# Source0-md5:	e9cd0c94c71ac17755f71a8e1561eac2
+# Source0-md5:	f16c7ef7f5fa4a43fcb2a4654b487e39
 URL:		https://fedorahosted.org/pyparted/
-BuildRequires:	parted-devel >= 2.2
+BuildRequires:	parted-devel >= 3.1
 BuildRequires:	pkgconfig
-BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	python-devel >= 1:2.7
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python-libs
-Requires:	parted >= 2.2
+Requires:	parted >= 3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,11 +29,11 @@ partycji.
 %setup -q -n pyparted-%{version}
 
 %build
-python setup.py build
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-python -- setup.py install \
+%{__python} -- setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
 
