@@ -13,7 +13,6 @@ BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.7
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
-%pyrequires_eq	python-libs
 Requires:	parted >= 3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -29,13 +28,15 @@ partycji.
 %setup -q -n pyparted-%{version}
 
 %build
+CC="%{__cc}" \
+CFLAGS="%{rpmcflags}" \
 %{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__python} -- setup.py install \
-	--root=$RPM_BUILD_ROOT \
-	--optimize=2
+%{__python} setup.py install \
+	--optimize=2 \
+	--root=$RPM_BUILD_ROOT
 
 %py_postclean
 
@@ -46,6 +47,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README TODO
 %attr(755,root,root) %{py_sitedir}/_pedmodule.so
-%{py_sitedir}/pyparted-%{version}-py*.egg-info
 %dir %{py_sitedir}/parted
 %{py_sitedir}/parted/*.py[co]
+%{py_sitedir}/pyparted-%{version}-py*.egg-info
