@@ -8,7 +8,7 @@ Summary:	Python module for parted library
 Summary(pl.UTF-8):	Moduł Pythona do biblioteki parteda
 Name:		python-%{module}
 Version:	3.10
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Libraries/Python
 Source0:	https://fedorahosted.org/releases/p/y/pyparted/pyparted-%{version}.tar.gz
@@ -104,6 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README TODO
 %attr(755,root,root) %{py3_sitedir}/_ped.*.so
+%dir %{py3_sitedir}/parted
 %{py3_sitedir}/parted/*.py
 %{py3_sitedir}/parted/__pycache__
 %{py3_sitedir}/pyparted-%{version}-py*.egg-info
