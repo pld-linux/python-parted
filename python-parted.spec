@@ -4,8 +4,8 @@
 %bcond_without	python3 # CPython 3.x module
 
 %define 	module	parted
-Summary:	Python module for parted library
-Summary(pl.UTF-8):	Moduł Pythona do biblioteki parteda
+Summary:	Python 2.x bindings for libparted library
+Summary(pl.UTF-8):	Wiązania Pythona 2.x do biblioteki libparted
 Name:		python-%{module}
 Version:	3.10
 Release:	3
@@ -30,25 +30,25 @@ Requires:	parted >= 3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Python module for the parted library. It is used for manipulating
-partition tables.
+Python 2.x bindings for the libparted library. It is used for
+manipulating partition tables.
 
 %description -l pl.UTF-8
-Moduł Pythona dla biblioteki parted. Służy do modyfikowania tablic
-partycji.
+Wiązania Pythona 2.x do biblioteki libparted. Służy do modyfikowania
+tablic partycji.
 
 %package -n python3-%{module}
-Summary:	Python module for parted library
-Summary(pl.UTF-8):	Moduł Pythona do biblioteki parteda
+Summary:	Python 3.x bindings for libparted library
+Summary(pl.UTF-8):	Wiązania Pythona 3.x do biblioteki libparted
 Group:		Libraries/Python
 
 %description -n python3-%{module}
-Python module for the parted library. It is used for manipulating
-partition tables.
+Python 3.x bindings for the libparted library. It is used for
+manipulating partition tables.
 
 %description -n python3-%{module} -l pl.UTF-8
-Moduł Pythona dla biblioteki parted. Służy do modyfikowania tablic
-partycji.
+Wiązania Pythona 3.x do biblioteki libparted. Służy do modyfikowania
+tablic partycji.
 
 %prep
 %setup -q -n pyparted-%{version}
