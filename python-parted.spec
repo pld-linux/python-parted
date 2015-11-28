@@ -8,7 +8,7 @@ Summary:	Python 2.x bindings for libparted library
 Summary(pl.UTF-8):	Wiązania Pythona 2.x do biblioteki libparted
 Name:		python-%{module}
 Version:	3.10
-Release:	7
+Release:	8
 License:	GPL v2+
 Group:		Libraries/Python
 Source0:	https://fedorahosted.org/releases/p/y/pyparted/pyparted-%{version}.tar.gz
