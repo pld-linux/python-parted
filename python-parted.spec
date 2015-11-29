@@ -17,7 +17,7 @@ URL:		https://fedorahosted.org/pyparted/
 BuildRequires:	parted-devel >= 3.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 %if %{with python2}
 BuildRequires:	python-devel >= 1:2.7
 %endif
