@@ -8,12 +8,13 @@ Summary:	Python 2.x bindings for libparted library
 Summary(pl.UTF-8):	Wiązania Pythona 2.x do biblioteki libparted
 Name:		python-%{module}
 Version:	3.11.2
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Libraries/Python
 #Source0Download: https://github.com/dcantrell/pyparted/releases
 Source0:	https://github.com/dcantrell/pyparted/releases/download/v%{version}/pyparted-%{version}.tar.gz
 # Source0-md5:	9477016f5a00bd2d7a280879cdeec3a4
+Patch0:		gcc10.patch
 URL:		https://github.com/dcantrell/pyparted
 BuildRequires:	parted-devel >= 3.1
 BuildRequires:	pkgconfig
@@ -54,6 +55,7 @@ tablic partycji.
 
 %prep
 %setup -q -n pyparted-%{version}
+%patch0 -p1
 
 %build
 %if %{with python2}
