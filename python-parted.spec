@@ -8,7 +8,7 @@ Summary:	Python 2.x bindings for libparted library
 Summary(pl.UTF-8):	Wiązania Pythona 2.x do biblioteki libparted
 Name:		python-%{module}
 Version:	3.11.2
-Release:	4
+Release:	5
 License:	GPL v2+
 Group:		Libraries/Python
 #Source0Download: https://github.com/dcantrell/pyparted/releases
